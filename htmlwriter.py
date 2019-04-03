@@ -704,13 +704,26 @@ def video(width="250",height="100",src="",text="",extra=[]):
     -----
     
     >>print(video("400","600","/video.ogg","Your browser does not support the video tag."))
-    <video width="400" height="600" src=/video.ogg >
+    <video width="400" height="600" src=/video.ogg controls>
     Your browser does not support the video tag.
     </video>
     
     """
     ...
-    return """<video width="{1}" height="{2}" src={3} {4}>\n{0}\n</video>\n""".format(text,width,height,src," ".join(extra))
+    return """<video width="{1}" height="{2}" src={3} controls {4}>\n{0}\n</video>\n""".format(text,width,height,src," ".join(extra))
+
+def audio(src="",text="",extra=[]):
+    """make a html audio
+    -----
+    
+    >>print(audio("/audio.wav","Your browser does not support the audio element."))
+    <audio src=/audio.wav controls >
+    Your browser does not support the audio element.
+    </audio>
+    
+    """
+    ...
+    return """<audio src={1} controls {2}>\n{0}\n</audio>\n""".format(text,src," ".join(extra))
 
 
 
